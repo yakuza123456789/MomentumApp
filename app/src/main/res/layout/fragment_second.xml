@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/MainBackgraund"
+    android:orientation="vertical"
+    tools:context=".ui.add.SecondFragment">
+
+    <ImageView
+        android:id="@+id/close_bottomSheet"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/ic_baseline_close_24"
+        android:layout_marginRight="20dp"
+        app:layout_constraintBottom_toTopOf="@id/title_text_add"/>
+
+    <TextView
+        android:id="@+id/title_text_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Add a title"
+        app:layout_constraintBottom_toTopOf="@id/name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="35sp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/white"
+        android:textSize="12dp" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="343dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="68dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#344F6E"
+        android:gravity="center|left"
+        android:hint="Title"
+        android:paddingLeft="16dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/editTextHint"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="@string/add_a_description"
+        app:layout_constraintBottom_toTopOf="@id/secondName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="35sp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/white"
+        android:textSize="12dp" />
+
+    <EditText
+        android:id="@+id/secondName"
+        android:layout_width="343dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="42dp"
+        android:background="#344F6E"
+        android:gravity="center|left"
+        android:paddingLeft="16dp"
+        android:hint="Description"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        android:textColor="@color/white"
+        android:textColorHint="@color/editTextHint"
+        android:textSize="16sp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/secondName"
+        android:layout_marginTop="42dp"
+
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="109dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/white"
+            android:background="@color/btnMedium"
+            android:text="1" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="109dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/white"
+            android:background="@color/btnHigh"
+            android:text="2" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="109dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@color/btnHighest"
+            android:text="3" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_user"
+        android:layout_width="331dp"
+        android:layout_height="53dp"
+        android:background="@color/btn_Add"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="54dp"
+        android:text="Add Task" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

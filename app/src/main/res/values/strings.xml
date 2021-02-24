@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MomentumApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="userName">John Peterson</string>
+    <string name="btn_add_Task">Add a Task</string>
+    <string name="authBtn">Next</string>
+    <string name="textViewNumberSend">We’ve sent a code on your phone number:</string>
+    <string name="recent_code_in_30_sec"> 30 </string>
+    <string name="update_a_title">Update a title</string>
+    <string name="add_a_description">Add a description</string>
+    <string name="title_item">title</string>
+    <string name="description_item">Description</string>
+    <string name="didn_t_get_the_code">Didn’t get the code?</string>
+    <string name="accept">Accept</string>
+</resources>

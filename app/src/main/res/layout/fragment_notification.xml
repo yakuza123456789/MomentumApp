@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/MainBackgraund"
+    android:orientation="vertical"
+    tools:context=".ui.auth.NotificationFragment">
+
+    <TextView
+        android:id="@+id/helloAuth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text="Login"
+        android:textColor="#ffffff"
+        android:textSize="36sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSendNumer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="@string/textViewNumberSend"
+        android:textColor="#ffffff"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/helloAuth" />
+
+    <EditText
+        android:id="@+id/editCode"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/authEdit"
+        android:hint="Code"
+        android:paddingLeft="16dp"
+        android:textColorHint="#ffffff"
+        android:textColor="@color/white"
+        android:inputType="number"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewSendNumer" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/editTextHint"
+        android:text="@string/didn_t_get_the_code"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/editCode"/>
+
+
+    <Button
+        android:id="@+id/btnAccept"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@color/createBtnTask"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/timeCounter"
+        android:text="@string/accept" />
+
+    <TextView
+        android:id="@+id/timeCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recent_code_in_30_sec"
+        app:layout_constraintTop_toBottomOf="@id/editCode"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="28dp"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

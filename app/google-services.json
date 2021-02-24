@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "990749459465",
+    "project_id": "momentum-634e3",
+    "storage_bucket": "momentum-634e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990749459465:android:a686cfc2e9056b13c8a4d8",
+        "android_client_info": {
+          "package_name": "com.azamat.momentumapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "990749459465-cft6gl13e824g7349fe49qj6oiktpck0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.azamat.momentumapp",
+            "certificate_hash": "5855afcefb82eff9a58477091e73ff9dff41764e"
+          }
+        },
+        {
+          "client_id": "990749459465-o3a73a7i5vpts5gjba6o2qv63v0re5g1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx2nBu9vnAs_C_-3Tm1ZcJYilmJEIEWrI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "990749459465-o3a73a7i5vpts5gjba6o2qv63v0re5g1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

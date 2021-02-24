@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/MainBackgraund"
+
+
+    tools:context=".ui.auth.AuthFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/helloAuth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#ffffff"
+        android:text="Login"
+        android:textSize="36sp"/>
+
+<!--    <EditText-->
+<!--        android:id="@+id/phoneAuth"-->
+<!--        android:layout_width="320dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        android:layout_marginTop="110dp"-->
+<!--        android:hint="+996-000-00-00-00"-->
+<!--        android:textColorHint="#ffffff"-->
+<!--        android:textColor="#ffffff"-->
+<!--        android:background="@color/authEdit"-->
+<!--        android:inputType="phone"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/helloAuth"/>-->
+
+
+
+ <br.com.sapereaude.maskedEditText.MaskedEditText
+     android:id="@+id/phoneAuth"
+    android:layout_width="320dp"
+    android:layout_height="50dp"
+     android:inputType="phone"
+     android:typeface="monospace"
+     app:allowed_chars="1234567890"
+     android:textColor="@color/white"
+     app:mask="+(996)###-##-##-##"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    android:layout_marginTop="50dp"
+     app:layout_constraintTop_toBottomOf="@id/helloAuth"/>
+
+    <Button
+        android:id="@+id/enter"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:text="@string/authBtn"
+        android:textColor="@color/white"
+        android:background="@color/createBtnTask"
+        app:layout_constraintTop_toBottomOf="@id/phoneAuth"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="100dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

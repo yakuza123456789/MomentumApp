@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/MainBackgraund"
+    tools:context=".ui.update.UpdateFragment">
+
+
+    <ImageView
+        android:id="@+id/deleteIconUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintBottom_toTopOf="@id/textViewTitle"
+        android:src="@drawable/ic_baseline_delete_sweep_24"/>
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="@string/update_a_title"
+        app:layout_constraintBottom_toTopOf="@id/nameUpdate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="35sp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/nameUpdate"
+        android:layout_width="343dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="68dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#344F6E"
+        android:gravity="center|left"
+        android:paddingStart="16dp"
+        android:hint="Title"
+        android:textColor="@color/white"
+        android:textColorHint="@color/editTextHint"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Update a description"
+        app:layout_constraintBottom_toTopOf="@id/secondNameUpdate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="35sp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/white"
+        android:textSize="12dp" />
+
+    <EditText
+        android:id="@+id/secondNameUpdate"
+        android:layout_width="343dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="42dp"
+        android:background="#344F6E"
+        android:gravity="center|left"
+        android:hint="Description"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameUpdate"
+        android:textColor="@color/white"
+        android:paddingLeft="16dp"
+        android:textColorHint="@color/editTextHint"
+        android:textSize="16sp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/secondNameUpdate"
+        android:layout_marginTop="42dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="109dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/white"
+            android:background="@color/btnMedium"
+            android:text="1" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="109dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/white"
+            android:background="@color/btnHigh"
+            android:text="2" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="109dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@color/btnHighest"
+            android:text="3" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnUserUpdate"
+        android:layout_width="331dp"
+        android:layout_height="53dp"
+        android:background="@color/btn_Add"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="54dp"
+        android:text="Update"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
