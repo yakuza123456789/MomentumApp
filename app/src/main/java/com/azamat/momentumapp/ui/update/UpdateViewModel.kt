@@ -6,9 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.azamat.momentumapp.data.local.Task
-import com.azamat.momentumapp.data.local.TaskDataBase
 import com.azamat.momentumapp.data.repository.Repository
-import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
@@ -19,41 +17,41 @@ class UpdateViewModel(application: Application) : AndroidViewModel(application) 
 
     private var db = Firebase.firestore
 
-    val readAllTask: LiveData<List<Task>>
-    val repository: Repository
+//    val readAllTask: LiveData<List<Task>>
+//    val repository: Repository
 
     init {
-        val taskDao = TaskDataBase.getTaskDataBase(application).taskDao()
-        repository = Repository(taskDao)
-        readAllTask = repository.readAllTask
+//        val taskDao = TaskDataBase.getTaskDataBase(application).taskDao()
+//        repository = Repository(taskDao)
+//        readAllTask = repository.readAllTask
     }
 
 
     fun updateTask(task: Task){
-        viewModelScope.launch(Dispatchers.IO){
-            repository.updateTask(task)
-        }
+        db.collection("users").document("qDLgbBsD822k1Wj0Pl4w").collection("tasks").document(task.id.toString()).set(
+            task
+        )
     }
 
     fun delete(task: Task){
         viewModelScope.launch(Dispatchers.IO){
-            repository.deleteTask(task)
+//            repository.deleteTask(task)
         }
     }
 
-     fun deleteFirestore() {
-
-        db.collection("users").document("qDLgbBsD822k1Wj0Pl4w")
-            .collection("tasks").document()
-            .delete()
-            .addOnSuccessListener {
-                Log.d("fire", "deleteFirestore: onSuccess")
-            }
-            .addOnFailureListener {
-                Log.d("fire", "deleteFirestore: onFailure")
-            }
-
-    }
+//     fun deleteFirestore() {
+//
+//        db.collection("users").document("qDLgbBsD822k1Wj0Pl4w")
+//            .collection("tasks").document()
+//            .delete()
+//            .addOnSuccessListener {
+//                Log.d("fire", "deleteFirestore: onSuccess")
+//            }
+//            .addOnFailureListener {
+//                Log.d("fire", "deleteFirestore: onFailure")
+//            }
+//
+//    }
 
 
 }

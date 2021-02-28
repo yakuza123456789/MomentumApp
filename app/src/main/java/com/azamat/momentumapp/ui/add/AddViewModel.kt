@@ -6,10 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.azamat.momentumapp.data.local.Task
-import com.azamat.momentumapp.data.local.TaskDataBase
 import com.azamat.momentumapp.data.repository.Repository
-import com.google.firebase.firestore.DocumentId
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
@@ -19,27 +16,26 @@ class AddViewModel(application: Application): AndroidViewModel(application) {
 
     private var db = Firebase.firestore
 
-    val readAllTask: LiveData<List<Task>>
-    val repository: Repository
+//    val readAllTask: LiveData<List<Task>>
+//    val repository: Repository
 
     init {
-        val taskDao = TaskDataBase.getTaskDataBase(application).taskDao()
-        repository = Repository(taskDao)
-        readAllTask = repository.readAllTask
+//        val taskDao = TaskDataBase.getTaskDataBase(application).taskDao()
+//        repository = Repository(taskDao)
+//        readAllTask = repository.readAllTask
     }
 
     fun addTask(task: Task){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addTask(task)
+//            repository.addTask(task)
         }
     }
 
      fun addTaskFirestore(task: Task) {
-        val taskFire = hashMapOf("task" to task)
 
         db.collection("users").document("qDLgbBsD822k1Wj0Pl4w")
             .collection("tasks")
-            .add(taskFire as Map<String, Any>)
+            .add(task)
             .addOnSuccessListener {
                 Log.d("fire", "addTaskFirestore: success " + it)
             }

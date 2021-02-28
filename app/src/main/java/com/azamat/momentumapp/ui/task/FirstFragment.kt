@@ -104,18 +104,20 @@ class FirstFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                taskDeleteFireStore(adapter.taskList[viewHolder.adapterPosition])
                 taskViewModel.delete(adapter.deleteItem(viewHolder.adapterPosition))
                 Toast.makeText(requireContext(), "Note deleted", Toast.LENGTH_SHORT).show()
-                taskDeleteFireStore()
             }
         }).attachToRecyclerView(recyclerView)
 
 
     }
 
-    private fun taskDeleteFireStore() {
+    private fun taskDeleteFireStore(task: Task) {
 
-        firestore.collection("tasks").document()
+        firestore.collection("tasks").document("qDLgbBsD822k1Wj0Pl4w").collection(
+            "tasks"
+        ).document()
             .delete()
             .addOnSuccessListener {
                 Log.d("fire", "taskDeleteFireStore: Success")

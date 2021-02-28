@@ -71,7 +71,6 @@ class UpdateFragment : BottomSheetDialogFragment() {
             updateViewModel.delete(args.currentTask)
             findNavController().navigate(R.id.action_updateFragment_to_firstFragment)
 
-            updateViewModel.deleteFirestore()
         }
         builder.setNegativeButton("No"){ dialogInterface: DialogInterface, i: Int ->
 

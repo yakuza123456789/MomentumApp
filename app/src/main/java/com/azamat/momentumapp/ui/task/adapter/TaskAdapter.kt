@@ -3,12 +3,14 @@ package com.azamat.momentumapp.ui.task.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.azamat.momentumapp.R
 import com.azamat.momentumapp.data.local.Task
 import com.azamat.momentumapp.databinding.ItemTaskBinding
 import com.azamat.momentumapp.ui.task.FirstFragmentDirections
+import org.w3c.dom.Text
 
 public class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
@@ -26,6 +28,11 @@ public class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     override fun getItemCount(): Int {
         return taskList.size
+    }
+
+    private fun toggleStrikeTrough(titleText: TextView, descText: TextView, isChecked: Boolean){
+
+
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
@@ -54,14 +61,14 @@ public class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 //        holder.binding.titleItem.setBackgroundColor(colorId)
 
 
-        holder.binding.checkBox.setOnCheckedChangeListener { compoundButton, b ->
-            if (b){
-                taskList!![lastChackedPosition].isChecked = false
-                lastChackedPosition = position
-            }
-            taskList!![position].isChecked = b
-            notifyDataSetChanged()
-        }
+//        holder.binding.checkBox.setOnCheckedChangeListener { compoundButton, b ->
+//            if (b){
+//                taskList!![lastChackedPosition].isChecked = false
+//                lastChackedPosition = position
+//            }
+//            taskList!![position].isChecked = b
+//            notifyDataSetChanged()
+//        }
 
 
         holder.binding.itemLayout.setOnClickListener {
@@ -70,7 +77,7 @@ public class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
         }
 
         val colorId: Int
-        val priority: Int = modelTask.priorityId
+        val priority: Int = modelTask.priorityId!!
         colorId = when (priority) {
             1 -> holder.itemView.getResources().getColor(R.color.btnMedium)
             2 -> holder.itemView.getResources().getColor(R.color.btnHigh)

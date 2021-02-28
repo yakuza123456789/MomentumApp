@@ -36,10 +36,6 @@ class SecondFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-      
-
-
         firestore = FirebaseFirestore.getInstance()
 
         viewModel = ViewModelProvider(this).get(AddViewModel::class.java)
@@ -60,11 +56,11 @@ class SecondFragment : BottomSheetDialogFragment() {
         val priorityId = radioButton.text.toString().toInt()
 
         if (checkEmpty(editTitle, editDesc)){
-            val task = Task(priorityId, false, 0, editTitle, editDesc)
+            val task = Task(priorityId, false, "", editTitle, editDesc)
 
             viewModel.addTask(task)
             Toast.makeText(requireContext(), "Add task", Toast.LENGTH_SHORT).show()
-            viewModel.addTaskFirestore(Task(priorityId, false, id, editTitle, editDesc))
+            viewModel.addTaskFirestore(Task(priorityId, false,"", editTitle, editDesc))
 
             findNavController().navigate(R.id.action_secondFragment_to_firstFragment)
 
