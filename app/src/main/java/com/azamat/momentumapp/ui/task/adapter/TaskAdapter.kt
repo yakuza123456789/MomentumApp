@@ -1,6 +1,8 @@
 package com.azamat.momentumapp.ui.task.adapter
 
 
+import android.graphics.Color
+import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
@@ -15,7 +17,6 @@ import org.w3c.dom.Text
 public class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     var taskList = ArrayList<Task>()
-    private var lastChackedPosition: Int = 0
 
     class TaskViewHolder(val binding: ItemTaskBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -31,7 +32,17 @@ public class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
     }
 
     private fun toggleStrikeTrough(titleText: TextView, descText: TextView, isChecked: Boolean){
-
+    if (isChecked){
+        titleText.paintFlags = titleText.paintFlags or STRIKE_THRU_TEXT_FLAG
+        descText.paintFlags = descText.paintFlags or STRIKE_THRU_TEXT_FLAG
+        titleText.setTextColor(Color.DKGRAY)
+        descText.setTextColor(Color.DKGRAY)
+    } else {
+        titleText.paintFlags = titleText.paintFlags and STRIKE_THRU_TEXT_FLAG.inv()
+        descText.paintFlags = descText.paintFlags and STRIKE_THRU_TEXT_FLAG.inv()
+        titleText.setTextColor(Color.WHITE)
+        descText.setTextColor(Color.WHITE)
+    }
 
     }
 
@@ -45,6 +56,11 @@ public class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
         holder.binding.checkBox.isChecked = modelTask.isChecked
 
 
+        toggleStrikeTrough(holder.binding.titleItem, holder.binding.descItem, modelTask.isChecked)
+        holder.binding.checkBox.setOnCheckedChangeListener { _, isChacked ->
+            toggleStrikeTrough(holder.binding.titleItem, holder.binding.descItem, isChacked)
+            modelTask.isChecked = !!modelTask.isChecked
+        }
 
 //        val colorId: Int
 //        val priority: Int = modelTask.priority

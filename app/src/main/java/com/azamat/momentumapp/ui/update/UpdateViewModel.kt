@@ -17,16 +17,6 @@ class UpdateViewModel(application: Application) : AndroidViewModel(application) 
 
     private var db = Firebase.firestore
 
-//    val readAllTask: LiveData<List<Task>>
-//    val repository: Repository
-
-    init {
-//        val taskDao = TaskDataBase.getTaskDataBase(application).taskDao()
-//        repository = Repository(taskDao)
-//        readAllTask = repository.readAllTask
-    }
-
-
     fun updateTask(task: Task){
         db.collection("users").document("qDLgbBsD822k1Wj0Pl4w").collection("tasks").document(task.id.toString()).set(
             task
@@ -35,23 +25,11 @@ class UpdateViewModel(application: Application) : AndroidViewModel(application) 
 
     fun delete(task: Task){
         viewModelScope.launch(Dispatchers.IO){
-//            repository.deleteTask(task)
+            db.collection("users").document("qDLgbBsD822k1Wj0Pl4w").collection("tasks")
+                .document(task.id.toString()).delete()
         }
     }
 
-//     fun deleteFirestore() {
-//
-//        db.collection("users").document("qDLgbBsD822k1Wj0Pl4w")
-//            .collection("tasks").document()
-//            .delete()
-//            .addOnSuccessListener {
-//                Log.d("fire", "deleteFirestore: onSuccess")
-//            }
-//            .addOnFailureListener {
-//                Log.d("fire", "deleteFirestore: onFailure")
-//            }
-//
-//    }
 
 
 }

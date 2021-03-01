@@ -17,4 +17,5 @@
     <color name="btnHighest">#DB6358</color>
     <color name="createBtnTask">#2A9393</color>
     <color name="editTextHint">#738192</color>
+    <color name="text_strike">#575757</color>
 </resources>

@@ -45,14 +45,18 @@ class SecondFragment : BottomSheetDialogFragment() {
         }
     }
 
-
-
     private fun insertDataBaseToData(view: View) {
         var editTitle = binding.name.text.toString()
         val editDesc = binding.secondName.text.toString()
 
         val radioButtonId: Int = binding.radioGroup.checkedRadioButtonId
         val radioButton : RadioButton = view.findViewById(radioButtonId)
+
+        if (radioButton == null){
+            Toast.makeText(requireContext(), "Выберите приоритет", Toast.LENGTH_SHORT).show()
+        }
+
+
         val priorityId = radioButton.text.toString().toInt()
 
         if (checkEmpty(editTitle, editDesc)){
@@ -60,11 +64,9 @@ class SecondFragment : BottomSheetDialogFragment() {
 
             viewModel.addTask(task)
             Toast.makeText(requireContext(), "Add task", Toast.LENGTH_SHORT).show()
-            viewModel.addTaskFirestore(Task(priorityId, false,"", editTitle, editDesc))
 
             findNavController().navigate(R.id.action_secondFragment_to_firstFragment)
 
-//            addTaskFirestore(editTitle, editDesc)
 
         } else{
             Toast.makeText(requireContext(), "Failed", Toast.LENGTH_SHORT).show()

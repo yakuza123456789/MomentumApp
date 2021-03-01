@@ -26,13 +26,6 @@ class AddViewModel(application: Application): AndroidViewModel(application) {
     }
 
     fun addTask(task: Task){
-        viewModelScope.launch(Dispatchers.IO) {
-//            repository.addTask(task)
-        }
-    }
-
-     fun addTaskFirestore(task: Task) {
-
         db.collection("users").document("qDLgbBsD822k1Wj0Pl4w")
             .collection("tasks")
             .add(task)
@@ -43,5 +36,4 @@ class AddViewModel(application: Application): AndroidViewModel(application) {
                 Log.d("fire", "addTaskFirestore: fail " + it)
             }
     }
-
 }
