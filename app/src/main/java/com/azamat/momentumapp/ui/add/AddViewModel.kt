@@ -16,14 +16,6 @@ class AddViewModel(application: Application): AndroidViewModel(application) {
 
     private var db = Firebase.firestore
 
-//    val readAllTask: LiveData<List<Task>>
-//    val repository: Repository
-
-    init {
-//        val taskDao = TaskDataBase.getTaskDataBase(application).taskDao()
-//        repository = Repository(taskDao)
-//        readAllTask = repository.readAllTask
-    }
 
     fun addTask(task: Task){
         db.collection("users").document("qDLgbBsD822k1Wj0Pl4w")

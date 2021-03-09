@@ -17,7 +17,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-class SecondFragment : BottomSheetDialogFragment() {
+class  SecondFragment : BottomSheetDialogFragment() {
 
     private lateinit var firestore: FirebaseFirestore
     private lateinit var viewModel: AddViewModel
@@ -72,7 +72,6 @@ class SecondFragment : BottomSheetDialogFragment() {
             Toast.makeText(requireContext(), "Failed", Toast.LENGTH_SHORT).show()
         }
     }
-
 
     fun checkEmpty(editTitle: String, editDesc: String): Boolean{
         return !(TextUtils.isEmpty(editTitle) && TextUtils.isEmpty(editDesc))

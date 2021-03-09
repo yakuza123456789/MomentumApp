@@ -17,28 +17,33 @@ import androidx.recyclerview.widget.RecyclerView
 import com.azamat.momentumapp.R
 import com.azamat.momentumapp.data.local.Task
 import com.azamat.momentumapp.databinding.FragmentFirstBinding
+
+import com.azamat.momentumapp.ui.task.adapter.FinishTaskAdapter
 import com.azamat.momentumapp.ui.task.adapter.TaskAdapter
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.FieldValue
+
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import java.lang.reflect.Field
-import java.util.*
+
 import kotlin.collections.ArrayList
-
-
 class FirstFragment : Fragment() {
 
     private lateinit var firestore: FirebaseFirestore
     private lateinit var binding: FragmentFirstBinding
     private lateinit var taskViewModel: TaskViewModel
 
-//    private val KEY_TITLE: String = "title"
-//    private val KEY_DESC: String = "description"
+//    private val taskAdapter = TaskAdapter(requireContext(), this)
+//    private val finishTaskAdapter = FinishTaskAdapter()
 //
-//    private var documFire: DocumentReference = firestore.document("task")
+//
+//
+//    override fun onClickCheckBox(position: Task) {
+//        position.isChecked = false
+//        taskAdapter.deleteItem(position)
+//        finishTaskAdapter.finishItemTask(taskAdapter.getCompletedTask() as ArrayList<Task>)
+//    }
+//
+//    override fun onClickCheckBox(position: Int) {
+//
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,17 +69,52 @@ class FirstFragment : Fragment() {
         Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_secondFragment)
         }
 
-        val adapter = TaskAdapter()
         val recyclerView = binding.recyclerView
+        val finishRv = binding.finishRecyclerView
+
+
+        val adapter = TaskAdapter(requireContext(), object : TaskAdapter.CheckBoxListener {
+            override fun onClickCheckBox(position: Int) {
+                recyclerView.visibility = View.INVISIBLE
+                finishRv.visibility = View.VISIBLE
+                Toast.makeText(requireContext(), "successful task $position", Toast.LENGTH_SHORT).show()
+            }
+
+//            override fun onClickCheckBox(task: Task) {
+//                task.isChecked = false
+//            }
+
+        })
+
         recyclerView.adapter = adapter
 
-        deleteToSwipe(adapter, recyclerView)
+
+
+        val finishAdapter = FinishTaskAdapter()
+
+        finishRv.adapter = finishAdapter
+
+//        itemTouchHelperr(finishAdapter, finishRv)
+
+        deleteToSwipe(finishAdapter, finishRv)
 
         taskViewModel.readAllTask.observe(viewLifecycleOwner, Observer {
             adapter.setData(it as ArrayList<Task>)
+            Log.d("adapter ", "onViewCreated: show all")
         })
 
+        taskViewModel.readAllTask.observe(viewLifecycleOwner, Observer {
+            finishAdapter.finishItemTask(it as ArrayList<Task>)
+        })
+
+
+
     }
+
+//    private fun itemTouchHelperr(finishAdapter: FinishTaskAdapter, finishRv: RecyclerView) {
+//        var itemTouchHelper = ItemTouchHelper(DeleteFinishTask(finishAdapter))
+//        itemTouchHelper.attachToRecyclerView(finishRv)
+//    }
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -83,14 +123,13 @@ class FirstFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menuDelete){
-//            deleteToAll()
         }
+
         return super.onOptionsItemSelected(item)
     }
 
 
-
-    private fun deleteToSwipe(adapter: TaskAdapter, recyclerView: RecyclerView) {
+    private fun deleteToSwipe(adapter: FinishTaskAdapter, finishRv: RecyclerView ) {
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
             0,
             ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
@@ -104,28 +143,14 @@ class FirstFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                taskDeleteFireStore(adapter.taskList[viewHolder.adapterPosition])
-                taskViewModel.delete(adapter.deleteItem(viewHolder.adapterPosition))
+                taskViewModel.delete(adapter.deleteToSwipe(viewHolder.adapterPosition))
                 Toast.makeText(requireContext(), "Note deleted", Toast.LENGTH_SHORT).show()
+
+
             }
-        }).attachToRecyclerView(recyclerView)
 
-
+        }).attachToRecyclerView(finishRv)
     }
-
-    private fun taskDeleteFireStore(task: Task) {
-
-        firestore.collection("tasks").document("qDLgbBsD822k1Wj0Pl4w").collection(
-            "tasks"
-        ).document()
-            .delete()
-            .addOnSuccessListener {
-                Log.d("fire", "taskDeleteFireStore: Success")
-            }
-            .addOnFailureListener {
-                Log.d("fire", "taskDeleteFireStore: Fail")
-            }
-
-    }
-
 }
+
+

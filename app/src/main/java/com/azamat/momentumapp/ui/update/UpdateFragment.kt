@@ -73,17 +73,10 @@ class UpdateFragment : BottomSheetDialogFragment() {
 
         }
         builder.setNegativeButton("No"){ dialogInterface: DialogInterface, i: Int ->
-
         }
 
         builder.show()
-
-
-
     }
-
-
-
 
 
     private fun updateItem(view: View) {

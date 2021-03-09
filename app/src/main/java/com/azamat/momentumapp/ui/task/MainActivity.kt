@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = navHostFragment.navController
 //        setupActionBarWithNavController(navController)
-//        navController.navigate(R.id.action_firstFragment_to_splashScreenFragment)
+//     navController.navigate(R.id.action_firstFragment_to_splashScreenFragment)
 
 
     }

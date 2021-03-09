@@ -18,4 +18,5 @@
     <color name="createBtnTask">#2A9393</color>
     <color name="editTextHint">#738192</color>
     <color name="text_strike">#575757</color>
+    <color name="completeTask">#7A7A7A</color>
 </resources>

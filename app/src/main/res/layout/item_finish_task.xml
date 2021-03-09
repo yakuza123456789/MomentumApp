@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardViewColor"
     android:layout_width="330dp"
+    android:backgroundTint="#7A7A7A"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:layout_margin="8dp">
@@ -23,7 +24,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginRight="5dp"
-            android:button="@drawable/checkbox_selected"
+            android:button="@drawable/checkbox_true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/title_item"
@@ -54,6 +55,7 @@
             app:layout_constraintBottom_toBottomOf="@id/cardViewColor"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+
             app:layout_constraintTop_toBottomOf="@id/title_item"
             tools:ignore="NotSibling" />
 
